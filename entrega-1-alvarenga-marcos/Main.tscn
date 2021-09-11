@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/background.png" type="Texture" id=3]
+[ext_resource path="res://assets/floor.png" type="Texture" id=4]
+
+[node name="Main" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 515.393, 267.985 )
+script = ExtResource( 2 )
+speed = 80.0
+
+[node name="Floor" type="TextureRect" parent="."]
+anchor_right = 1.0
+margin_top = 300.0
+margin_bottom = 600.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

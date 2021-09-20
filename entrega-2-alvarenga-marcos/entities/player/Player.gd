@@ -2,6 +2,7 @@ extends Sprite
 export var H_SPEED_LIMIT:float = 600.0
 export var FRICTION_WEIGHT:float = 0.1
 export var ACCELERATION:float = 20.0
+export var MINIMUM_DISTANCE:int = 10
 
 onready var cannon:Sprite = $Cannon
 
@@ -34,5 +35,5 @@ func _physics_process(delta):
 	position += velocity * delta
 
 func get_limit_for_rendering_turret():
-	# Un poco más del borde para que no spawnee tn cerca
-	return position.y - texture.get_height()
+	# Un poco más del borde para que no spawnee tan cerca
+	return position.y - (texture.get_height() + MINIMUM_DISTANCE)

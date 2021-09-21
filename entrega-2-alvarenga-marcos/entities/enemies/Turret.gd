@@ -7,11 +7,13 @@ onready var fire_position:Position2D = $FirePosition
 var player:Sprite
 var projectile_container:Node
 
+func _ready():
+	$Timer.start()
+	
 func set_values(player, projectile_container):
 	self.player = player
-	self.projectile_container = projectile_container
-	$Timer.start()
-
+	self.projectile_container = projectile_container	
+	
 func _on_Timer_timeout():
 	fire()
 

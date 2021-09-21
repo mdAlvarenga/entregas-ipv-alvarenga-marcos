@@ -19,9 +19,9 @@ func spawn_with_limit(player:Sprite, container:Node):
 
 func _spawn_turret():
 	var turret:Turret = turret_scene.instance()
+	var position = _get_random_position_for(turret.get_turret_width(), turret.get_turret_height())
+	turret.set_position(position)
 	turret.set_values(player, container)
-	
-	turret.set_position(_get_random_position_for(turret.get_turret_width(), turret.get_turret_height()))
 	container.add_child(turret)
 
 func _get_random_position_for(x_spawn_left_limit, y_spawn_top_limit):

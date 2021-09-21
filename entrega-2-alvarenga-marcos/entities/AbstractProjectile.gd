@@ -12,11 +12,11 @@ func _ready():
 func set_starting_values(starting_position:Vector2, dir:Vector2):
 	global_position = starting_position
 	self.direction = dir
-	$Timer.start()
 	set_physics_process(true)
 	
 func _physics_process(delta):
 	position += direction * speed * delta
 
-func _on_Timer_timeout():
+func _on_VisibilityNotifier2D_screen_exited():
+	print("Delete requested")
 	emit_signal("delete_requested", self)

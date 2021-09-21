@@ -9,8 +9,9 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 projectile_scene = ExtResource( 3 )
 
-[node name="FirePosition" type="Position2D" parent="."]
-
 [node name="Timer" type="Timer" parent="."]
+
+[node name="FirePosition" type="Position2D" parent="."]
+position = Vector2( -0.0561218, 31.8316 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

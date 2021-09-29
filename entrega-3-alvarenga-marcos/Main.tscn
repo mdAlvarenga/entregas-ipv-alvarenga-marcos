@@ -21,9 +21,9 @@ layer = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.11893
-margin_top = 0.529724
+margin_top = 0.132873
 margin_right = 2.1189
-margin_bottom = 0.529724
+margin_bottom = 0.132874
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -31,7 +31,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 413.003, 395.272 )
+position = Vector2( 402, 395.272 )
 GRAVITY = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -42,6 +42,26 @@ script = ExtResource( 5 )
 turret_scene = ExtResource( 4 )
 
 [node name="Floor" parent="." instance=ExtResource( 6 )]
+
+[node name="LeftWall" parent="." instance=ExtResource( 6 )]
+position = Vector2( 9.898, 197 )
+rotation = 1.5708
+scale = Vector2( 7, 0.3 )
+
+[node name="RampLeft" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1003.1, 434.143 )
+rotation = 2.88852
+scale = Vector2( 7, 2 )
+
+[node name="RampRight" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1417.11, 434.143 )
+rotation = 0.253073
+scale = Vector2( 7, 2 )
+
+[node name="RightWall" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2382.98, 197 )
+rotation = 1.5708
+scale = Vector2( 7, 0.3 )
 
 [node name="Floor2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1195.4, 513.5 )

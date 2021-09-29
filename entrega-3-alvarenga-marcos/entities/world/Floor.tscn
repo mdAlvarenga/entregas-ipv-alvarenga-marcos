@@ -10,6 +10,7 @@ position = Vector2( 400, 513.5 )
 scale = Vector2( 12.1212, 2.62121 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

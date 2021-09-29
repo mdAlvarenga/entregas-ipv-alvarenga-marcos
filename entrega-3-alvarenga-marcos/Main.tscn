@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://entities/enemies/Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/enemies/TurretsSpawner.gd" type="Script" id=5]
+[ext_resource path="res://entities/world/Floor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/textures/player.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.284, 32.0624 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.11893
+margin_top = 0.529724
+margin_right = 2.1189
+margin_bottom = 0.529724
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 413.003, 395.272 )
+GRAVITY = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="TurretsSpawner" type="Node" parent="."]
+script = ExtResource( 5 )
+turret_scene = ExtResource( 4 )
+
+[node name="Floor" parent="." instance=ExtResource( 6 )]
+
+[node name="Floor2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1195.4, 513.5 )
+
+[node name="Floor3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1992.02, 513.5 )
+
+[node name="Cubo" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cubo"]
+position = Vector2( 594.409, 341.889 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Cubo"]
+position = Vector2( 593.318, 341.871 )
+texture = ExtResource( 7 )
+
+[node name="Cubo2" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cubo2"]
+position = Vector2( 242.692, 222.163 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Cubo2"]
+position = Vector2( 242.601, 222.145 )
+texture = ExtResource( 7 )

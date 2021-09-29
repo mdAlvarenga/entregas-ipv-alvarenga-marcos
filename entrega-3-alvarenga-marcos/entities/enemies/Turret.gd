@@ -18,11 +18,10 @@ func initialize(container, turret_pos, projectile_container):
 	
 func fire_at_player():
 	var proj_instance = projectile_scene.instance()
-	proj_instance.initialize(projectile_container, fire_position.global_position, fire_position.global_position)
-
+	proj_instance.initialize(projectile_container, fire_position.global_position, fire_position.global_position.direction_to(target.global_position))
 
 func _on_DetectionArea_body_entered(body):
-	if body == null:
+	if target == null:
 		target = body
 		fire_timer.start()
 

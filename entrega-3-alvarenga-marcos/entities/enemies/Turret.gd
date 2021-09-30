@@ -1,4 +1,5 @@
-extends Sprite
+extends StaticBody2D
+class_name Turret
 
 onready var fire_position = $FirePosition
 onready var fire_timer = $FireTimer
@@ -29,3 +30,6 @@ func _on_DetectionArea_body_exited(body):
 	if body == target:
 		target = null
 		fire_timer.stop()
+
+func hit_by_projectile():
+	queue_free()

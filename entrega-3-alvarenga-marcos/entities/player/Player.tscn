@@ -7,7 +7,7 @@
 [ext_resource path="res://entities/player/PlayerProjectile.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 32.2215
+radius = 31.7409
 height = 0.0
 
 [node name="Player" type="KinematicBody2D"]
@@ -19,12 +19,19 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Cannon" type="Sprite" parent="."]
+position = Vector2( 0.151842, -0.353554 )
+scale = Vector2( 1.41448, 1 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
 projectile_scene = ExtResource( 5 )
 
 [node name="CannonTip" type="Position2D" parent="Cannon"]
-position = Vector2( 15, 0 )
+position = Vector2( 31.135, 2.68221e-07 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.275681, 0 )
 shape = SubResource( 1 )
+
+[node name="DelayTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DelayTimer" to="." method="_on_DelayTimer_timeout"]

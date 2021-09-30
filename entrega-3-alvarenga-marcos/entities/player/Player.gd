@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 onready var cannon = $Cannon
+onready var delay_timer = $DelayTimer
 
 export (float) var ACCELERATION:float = 20.0
 export (float) var H_SPEED_LIMIT:float = 600.0
@@ -13,7 +14,7 @@ export (float) var SLOPE_SLIDE_THRESHOLD:float = 50.0
 
 var velocity:Vector2 = Vector2.ZERO
 var projectile_container
-
+	
 func initialize(projectile_container):
 	self.projectile_container = projectile_container
 	cannon.projectile_container = projectile_container
@@ -57,6 +58,19 @@ func _get_cannon_fire_input():
 	if Input.is_action_just_pressed("fire_cannon"):
 		if projectile_container == null:
 			projectile_container = get_parent()
+			print(projectile_container)
 			cannon.projectile_container = projectile_container
 		cannon.fire()
 	
+func hit_by_projectile():
+	_kill()
+
+func _on_FallZone_body_entered(body):
+	_kill()
+
+func _kill():
+	queue_free()
+	get_tree().change_scene("res://Main.tscn")
+	
+func _on_DelayTimer_timeout():
+	pass

@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://entities/player/Player.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Turret",
+"language": "GDScript",
+"path": "res://entities/enemies/Turret.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Player": "",
+"Turret": ""
 }
 
 [application]

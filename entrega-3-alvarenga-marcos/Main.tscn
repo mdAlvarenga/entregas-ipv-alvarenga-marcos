@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://entities/enemies/TurretsSpawner.gd" type="Script" id=5]
 [ext_resource path="res://entities/world/Floor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=7]
+[ext_resource path="res://entities/world/world_tileset.tres" type="TileSet" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.284, 32.0624 )
@@ -20,10 +21,10 @@ layer = -1
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.11893
-margin_top = 0.132873
-margin_right = 2.1189
-margin_bottom = 0.132874
+margin_left = 3.0
+margin_top = -89.0
+margin_right = 56.0
+margin_bottom = 30.0
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -31,7 +32,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 402, 395.272 )
+position = Vector2( 412.452, 416.043 )
 GRAVITY = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -41,33 +42,15 @@ current = true
 script = ExtResource( 5 )
 turret_scene = ExtResource( 4 )
 
-[node name="Floor" parent="." instance=ExtResource( 6 )]
-
-[node name="LeftWall" parent="." instance=ExtResource( 6 )]
-position = Vector2( 9.898, 197 )
-rotation = 1.5708
-scale = Vector2( 7, 0.3 )
-
 [node name="RampLeft" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1003.1, 434.143 )
-rotation = 2.88852
-scale = Vector2( 7, 2 )
+position = Vector2( 626.805, 454.691 )
+rotation = 3.02291
+scale = Vector2( 5, 0.75 )
 
 [node name="RampRight" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1417.11, 434.143 )
-rotation = 0.253073
-scale = Vector2( 7, 2 )
-
-[node name="RightWall" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2382.98, 197 )
-rotation = 1.5708
-scale = Vector2( 7, 0.3 )
-
-[node name="Floor2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1195.4, 513.5 )
-
-[node name="Floor3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1992.02, 513.5 )
+position = Vector2( 948.275, 455.811 )
+rotation = 0.125664
+scale = Vector2( 5, 0.75 )
 
 [node name="Cubo" type="RigidBody2D" parent="."]
 
@@ -88,3 +71,8 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="Cubo2"]
 position = Vector2( 242.601, 222.145 )
 texture = ExtResource( 7 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 8 )
+format = 1
+tile_data = PoolIntArray( 0, -1073741823, 0, 36, -1073741823, 0, 65536, -1073741823, 0, 65572, -1073741823, 0, 131072, -1073741823, 0, 131108, -1073741823, 0, 196608, -1073741823, 0, 196621, 1610612738, 0, 196622, 1610612738, 0, 196623, 1610612738, 0, 196635, 1610612738, 0, 196636, 1610612738, 0, 196637, 1610612738, 0, 196640, 1610612738, 0, 196644, -1073741823, 0, 262144, -1073741823, 0, 262180, -1073741823, 0, 327680, -1073741823, 0, 327704, -1073741823, 0, 327705, -1073741823, 0, 327716, -1073741823, 0, 393216, -1073741823, 0, 393238, -1073741823, 0, 393239, -1073741823, 0, 393240, -1073741823, 0, 393241, -1073741823, 0, 393252, -1073741823, 0, 458752, -1073741823, 0, 458753, -1073741823, 0, 458754, -1073741823, 0, 458755, -1073741823, 0, 458756, -1073741823, 0, 458757, -1073741823, 0, 458758, -1073741823, 0, 458759, -1073741823, 0, 458760, -1073741823, 0, 458761, -1073741823, 0, 458762, -1073741823, 0, 458763, -1073741823, 0, 458764, -1073741823, 0, 458765, -1073741823, 0, 458766, -1073741823, 0, 458767, -1073741823, 0, 458768, -1073741823, 0, 458769, -1073741823, 0, 458770, -1073741823, 0, 458771, -1073741823, 0, 458772, -1073741823, 0, 458773, -1073741823, 0, 458774, -1073741823, 0, 458775, -1073741823, 0, 458776, -1073741823, 0, 458777, -1073741823, 0, 458778, -1073741823, 0, 458779, -1073741823, 0, 458780, -1073741823, 0, 458781, -1073741823, 0, 458782, -1073741823, 0, 458783, -1073741823, 0, 458784, -1073741823, 0, 458785, -1073741823, 0, 458786, -1073741823, 0, 458787, -1073741823, 0, 458788, -1073741823, 0 )

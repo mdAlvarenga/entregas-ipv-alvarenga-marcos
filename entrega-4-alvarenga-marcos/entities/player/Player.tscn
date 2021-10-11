@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/states/WalkState.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://entities/player/states/IdleState.gd" type="Script" id=6]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=7]
 [ext_resource path="res://assets/textures/cannon.png" type="Texture" id=8]
+[ext_resource path="res://entities/player/states/JumpState.gd" type="Script" id=9]
+[ext_resource path="res://entities/player/states/DeadState.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 31.6034
@@ -27,6 +29,12 @@ script = ExtResource( 6 )
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource( 2 )
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
 
 [node name="Body" type="Sprite" parent="."]
 scale = Vector2( 1, 1.35954 )

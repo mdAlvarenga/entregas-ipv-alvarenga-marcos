@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://entities/player/states/WalkState.gd" type="Script" id=2]
+[ext_resource path="res://entities/player/PlayerStateMachine.gd" type="Script" id=3]
+[ext_resource path="res://entities/player/Cannon.gd" type="Script" id=4]
+[ext_resource path="res://entities/player/PlayerProjectile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/player/states/IdleState.gd" type="Script" id=6]
+[ext_resource path="res://assets/textures/player.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/cannon.png" type="Texture" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 31.6034
+height = 24.6237
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+START_STATE = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="Body" type="Sprite" parent="."]
+scale = Vector2( 1, 1.35954 )
+texture = ExtResource( 7 )
+
+[node name="Cannon" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+script = ExtResource( 4 )
+projectile_scene = ExtResource( 5 )
+
+[node name="CannonTip" type="Position2D" parent="Cannon"]
+position = Vector2( 15, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="FloorRaycasts" type="Node2D" parent="."]
+position = Vector2( 0, 45 )
+
+[node name="FloorRaycast1" type="RayCast2D" parent="FloorRaycasts"]
+cast_to = Vector2( 0, 5 )
+
+[node name="FloorRaycast2" type="RayCast2D" parent="FloorRaycasts"]
+position = Vector2( -15, 0 )
+cast_to = Vector2( 0, 5 )
+
+[node name="FloorRaycast3" type="RayCast2D" parent="FloorRaycasts"]
+position = Vector2( 15, 0 )
+cast_to = Vector2( 0, 5 )

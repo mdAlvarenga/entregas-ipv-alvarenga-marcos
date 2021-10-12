@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://entities/player/Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Turret",
+"language": "GDScript",
+"path": "res://entities/enemies/Turret.gd"
 } ]
 _global_script_class_icons={
 "EnemySpawnPoint": "",
 "PathfindAstar": "",
-"Player": ""
+"Player": "",
+"Turret": ""
 }
 
 [application]
@@ -78,6 +84,11 @@ show_detection_area_turret={
 restart={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+dash={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
  ]
 }
 

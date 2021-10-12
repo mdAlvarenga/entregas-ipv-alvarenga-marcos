@@ -11,9 +11,5 @@ func _ready():
 		return
 		
 	for child in get_children():
-		child.path  
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		if child is Turret:
+			child.pathfinding = pathfinder

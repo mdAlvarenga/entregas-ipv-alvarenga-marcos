@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Turret
 
 onready var fire_position = $FirePosition
 onready var fire_timer = $FireTimer

@@ -18,6 +18,7 @@ export (float) var ACCELERATION:float = 30.0
 export (float) var H_SPEED_LIMIT:float = 400.0
 export (int) var jump_speed = 1000
 export (float) var FRICTION_WEIGHT:float = 0.1
+export (int) var DASH = 5
 export (int) var gravity = 30
 
 var projectile_container
